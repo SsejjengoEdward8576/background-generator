@@ -1,4 +1,5 @@
-var css = document.querySelector("h3");
+var heading = document.querySelector("h2");
+var cssOutput = document.querySelector("h3");
 var color1 = document.querySelector(".color1");
 var color2 = document.querySelector(".color2");
 var body = document.getElementById("gradient");
@@ -9,8 +10,8 @@ function setGradient() {
     + "," 
     + color2.value 
     +")";
-
-    css.textContent = body.style.background +";";
+    heading.textContent ="This is the current css background generated";
+    cssOutput.textContent = body.style.background +";";
 }
 
 color1.addEventListener("input", setGradient);
