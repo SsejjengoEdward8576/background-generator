@@ -1,5 +1,5 @@
-const color1 = document.querySelector(".color1");
-const color2 = document.querySelector(".color2");
+const color1 = document.getElementById("color1");
+const color2 = document.getElementById("color2");
 const gradient = document.getElementById("gradient");
 const cssCode = document.getElementById("cssCode");
 const randomizeButton = document.getElementById("randomize");

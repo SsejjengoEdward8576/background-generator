@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Background Generator</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="sheet-bg.css">
 </head>
 
 <body>
@@ -13,18 +13,22 @@
         <h1 class="header__title">Background Generator</h1>
     </header>
     <main class="main">
-        <div class="controls">
-            <input class="color1" type="color" name="color1" value="#00ff00">
-            <input class="color2" type="color" name="color2" value="#ff0000">
+        <div class="controls" role="group" aria-label="Gradient Controls">
+            <label>Color 1:
+                <input class="color1" id="color1" type="color" name="color1" value="#00ff00">
+            </label>
+            <label>Color 2:
+                <input class="color2" id="color2" type="color" name="color2" value="#ff0000">
+            </label>
             <button id="randomize" class="button">Random Colors</button>
             <button id="save" class="button">Save Gradient</button>
             <button id="load" class="button">Load Gradient</button>
         </div>
         <div class="gradient-preview">
-            <div class="gradient" id="gradient"></div>
+            <div class="gradient" id="gradient" role="status" aria-label="Gradient preview"></div>
             <div class="css">
                 <h2 class="css__title">Generated CSS:</h2>
-                <code class="css__code" id="cssCode"></code>
+                <code class="css__code" id="cssCode" aria-live="polite"></code>
             </div>
         </div>
     </main>
