@@ -4,30 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background Generator</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description" content="Create beautiful CSS gradient backgrounds with our easy-to-use gradient generator. Choose colors, adjust angles, and copy the CSS code instantly.">
+    <meta name="author" content="Background Generator Team">
+    <meta name="theme-color" content="#333333">
+    
+    <!-- Open Graph meta tags for social media sharing -->
+    <meta property="og:title" content="Background Generator - Create Beautiful CSS Gradients">
+    <meta property="og:description" content="Create beautiful CSS gradient backgrounds with our easy-to-use gradient generator. Choose colors, adjust angles, and copy the CSS code instantly.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Background+Generator">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Background Generator - Create Beautiful CSS Gradients">
+    <meta name="twitter:description" content="Create beautiful CSS gradient backgrounds with our easy-to-use gradient generator. Choose colors, adjust angles, and copy the CSS code instantly.">
+    <meta name="twitter:image" content="https://via.placeholder.com/1200x630.png?text=Background+Generator">
+    
+    <title>Background Generator - Create Beautiful CSS Gradients</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="stylesheet" href="sheet-bg.css">
 </head>
 
 <body>
+    <noscript>
+        <div style="padding: 20px; background-color: #fff3cd; color: #856404; text-align: center; border: 1px solid #ffc107;">
+            <strong>JavaScript Required:</strong> This application requires JavaScript to be enabled in your browser to function properly. Please enable JavaScript and reload the page.
+        </div>
+    </noscript>
+    
     <header class="header">
         <h1 class="header__title">Background Generator</h1>
     </header>
-    <main class="main">
+    
+    <main class="main" role="main">
         <div class="controls">
-            <input class="color1" type="color" name="color1" value="#00ff00">
-            <input class="color2" type="color" name="color2" value="#ff0000">
-            <button id="randomize" class="button">Random Colors</button>
-            <button id="save" class="button">Save Gradient</button>
-            <button id="load" class="button">Load Gradient</button>
+            <div class="color-control">
+                <label for="color1-input" class="color-control__label">Color 1:</label>
+                <input 
+                    id="color1-input" 
+                    class="color1" 
+                    type="color" 
+                    name="color1" 
+                    value="#00ff00" 
+                    aria-label="Select first gradient color"
+                    title="Choose the first color for the gradient">
+            </div>
+            
+            <div class="color-control">
+                <label for="color2-input" class="color-control__label">Color 2:</label>
+                <input 
+                    id="color2-input" 
+                    class="color2" 
+                    type="color" 
+                    name="color2" 
+                    value="#ff0000" 
+                    aria-label="Select second gradient color"
+                    title="Choose the second color for the gradient">
+            </div>
+            
+            <div class="angle-control">
+                <label for="angle-input" class="angle-control__label">
+                    Gradient Angle: <span id="angle-value">90</span>°
+                </label>
+                <input 
+                    id="angle-input" 
+                    class="angle-input" 
+                    type="range" 
+                    min="0" 
+                    max="360" 
+                    value="90" 
+                    step="1" 
+                    aria-label="Adjust gradient angle from 0 to 360 degrees"
+                    title="Rotate the gradient direction">
+            </div>
+            
+            <button 
+                id="randomize" 
+                class="button" 
+                aria-label="Generate random gradient colors"
+                title="Click to generate random colors">
+                Random Colors
+            </button>
+            
+            <button 
+                id="save" 
+                class="button" 
+                aria-label="Save current gradient to local storage"
+                title="Save your gradient for later">
+                Save Gradient
+            </button>
+            
+            <button 
+                id="load" 
+                class="button" 
+                aria-label="Load previously saved gradient"
+                title="Load your saved gradient">
+                Load Gradient
+            </button>
         </div>
+        
         <div class="gradient-preview">
-            <div class="gradient" id="gradient"></div>
+            <div class="gradient" id="gradient" role="img" aria-label="Gradient preview"></div>
             <div class="css">
                 <h2 class="css__title">Generated CSS:</h2>
-                <code class="css__code" id="cssCode"></code>
+                <div class="css__container">
+                    <code class="css__code" id="cssCode" role="region" aria-label="Generated CSS code"></code>
+                    <button 
+                        id="copy-css" 
+                        class="button button--copy" 
+                        aria-label="Copy CSS code to clipboard"
+                        title="Copy the CSS code to your clipboard">
+                        Copy CSS
+                    </button>
+                </div>
             </div>
         </div>
     </main>
+    
     <script src="script-bg.js"></script>
 </body>
 
